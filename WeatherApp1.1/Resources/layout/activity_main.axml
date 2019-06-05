@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-	android:orientation="vertical">
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:gridSpec="1|8|#0093eeff|K:#ee8700ff:16,l:72,l:16,r|S:#83ee00ff:16,0,l:16,56,l:16,0,r">
 	<Button
-		android:text="Button"
+		android:text="Get forecast"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/button1" />
 	<EditText
+		android:text="Search city"
+		android:gravity="center"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/cityname" />
-
-	<TextView
-    android:text="Tilføj/fjern Links"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-	android:id="@+id/ilmainfo"/>
-	/>
+	<GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:columnCount ="2"
+		android:rowCount ="3"
+		>
+		<TextView
+			android:text="päike"
+			android:layout_columnWeight="1"
+			android:layout_rowWeight="0"
+			android:layout_columnSpan="2"
+			android:gravity="center"
+			android:textSize="100dp"
+			android:id="@+id/weather"/>
+		<TextView
+			android:layout_columnWeight="1"
+			android:layout_rowWeight="0"
+			android:layout_columnSpan="2"
+			android:text="2C"
+			android:gravity="center"
+			android:textSize="100dp"
+			android:id="@+id/temperature"/>
+		<TextView
+			android:layout_columnWeight="1"
+			android:layout_rowWeight="1"
+			android:text="40%"
+			android:gravity="left"
+			android:textSize="40dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/humidity"/>
+		<TextView
+			android:layout_columnWeight="1"
+			android:layout_rowWeight="1"
+			android:text="10 m/s"
+			android:gravity="right"
+			android:textSize="40dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/wind"/>
+	</GridLayout>
 </LinearLayout>
