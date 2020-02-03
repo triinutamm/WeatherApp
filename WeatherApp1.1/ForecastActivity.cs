@@ -10,12 +10,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 
 namespace WeatherApp1._1
 {
     [Activity(Label = "ForecastActivity")]
     public class ForecastActivity : Activity
     {
+        private List<string> forecastItems;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,7 +27,6 @@ namespace WeatherApp1._1
             var button = FindViewById<Button>(Resource.Id.button);
             button.Click += Button_ClickAsync;
 
-            // Create your application here
         }
 
         private async void Button_ClickAsync(object sender, EventArgs e)
@@ -39,8 +41,13 @@ namespace WeatherApp1._1
             HttpResponseMessage response = await client.GetAsync(path);
             HttpContent content = response.Content;
             dynamic result = await content.ReadAsStringAsync();
+            Time data = JsonConvert.DeserializeObject<Time>(result);
 
-            
+            var currentTemp = data.temp;
+
+            TextView Temp = FindViewById<TextView>(Resource.Id.textView1);
+            Temp.Text = currentTemp.ToString() + " kraadi";
+
         }
     }
 }

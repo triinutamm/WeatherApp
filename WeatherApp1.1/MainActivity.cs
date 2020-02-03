@@ -56,12 +56,10 @@ namespace WeatherApp1._1
 
             WeatherData data = JsonConvert.DeserializeObject<WeatherData>(result);
             // Tee TextViewe juurde ja muuda mu tehtud variabled nendeks textviewideks
-            var weatherTitle = data.name;
             var currentTemp = data.main.temp;
             var weatherTemperatureMin = data.main.temp_min;
             var weatherTemperatureMax = data.main.temp_max;
             var weatherWind = data.wind.speed;
-            var weatherPressure = data.main.pressure;
             var weatherHumidity = data.main.humidity;
             var weatherVisibility = data.weather.FirstOrDefault().main;
 

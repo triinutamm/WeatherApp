@@ -3,16 +3,29 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<android.support.design.widget.TextInputEditText
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:minWidth="25px"
-		android:minHeight="25px"
-		android:id="@+id/input" />
 	<Button
-		android:text="Button"
+		android:text="Get forecast"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/button" />
+	<EditText
+		android:text="Tallinn"
+		android:gravity="center"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/input" />
+	<TextView
+		android:text="Text"
+		android:layout_width="match_parent"
+		android:layout_height="57.0dp"
+		android:id="@+id/textView1"
+		android:layout_marginBottom="70.0dp" />
+	<ListView
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/weatherlist" />
+
 
 </LinearLayout>
