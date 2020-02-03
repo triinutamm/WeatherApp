@@ -21,8 +21,9 @@
 	<ImageView
 		android:src="@android:drawable/ic_menu_gallery"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/weatherimage" />
+		android:layout_height="121.0dp"
+		android:id="@+id/weatherimage"
+		android:layout_marginBottom="87.0dp" />
 	<GridLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

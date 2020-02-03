@@ -31,14 +31,16 @@ namespace WeatherApp1._1
         {
             var input = FindViewById<EditText>(Resource.Id.input);
             var city = input.Text;
-            string path = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=b6907d289e10d714a6e88b30761fae22&units=metric";
+            string path = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=6b5d1b98a1edd47d85f63100062b29bf& units =metric";
+            //string path = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a316892ef34d729320d6d415178d8981&units=metric";
+            //queryurl = "https://openweathermap.org/data/2.5/weather?q=" + city + "&appid=a316892ef34d729320d6d415178d8981" + "&units=metric";
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(path);
             HttpContent content = response.Content;
             dynamic result = await content.ReadAsStringAsync();
 
-            int x = 0;
+            
         }
     }
 }
