@@ -25,24 +25,26 @@
 		android:visibility="invisible"
 		android:id="@+id/weatherimage"
 		android:layout_marginBottom="87.0dp" />
+	<TextView
+		android:hint="Weather"
+		android:layout_width="match_parent"
+		android:gravity="center"
+		android:textSize="80dp"
+		android:id="@+id/temperature"
+		android:layout_height="wrap_content" />
 	<GridLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:columnCount ="2"
-		android:rowCount ="3"
+		android:rowCount ="2"
+		android:orientation ="horizontal"
 		android:layout_marginHorizontal="20dp"
+		android:layout_marginBottom="40dp"
 		>
 		<TextView
-			android:layout_columnWeight="2"
-			android:layout_rowWeight="0"
-			android:layout_columnSpan="2"
-			android:hint="Weather"
-			android:gravity="center"
-			android:textSize="80dp"
-			android:id="@+id/temperature"/>
-		<TextView
+			android:layout_row="1"
+			android:layout_column="0"
 			android:layout_columnWeight="1"
-			android:layout_rowWeight="1"
 			android:text=""
 			android:gravity="left"
 			android:textSize="40dp"
@@ -50,8 +52,8 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/humidity"/>
 		<TextView
-			android:layout_columnWeight="1"
-			android:layout_rowWeight="1"
+			android:layout_row="1"
+			android:layout_column="1"
 			android:text=""
 			android:gravity="right"
 			android:textSize="40dp"
