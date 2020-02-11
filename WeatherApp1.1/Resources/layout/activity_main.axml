@@ -13,7 +13,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/button1" />
 	<EditText
-		android:text="Tallinn"
+		android:hint="City name"
 		android:gravity="center"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -22,6 +22,7 @@
 		android:src="@android:drawable/ic_menu_gallery"
 		android:layout_width="match_parent"
 		android:layout_height="121.0dp"
+		android:visibility="invisible"
 		android:id="@+id/weatherimage"
 		android:layout_marginBottom="87.0dp" />
 	<GridLayout
@@ -29,19 +30,20 @@
 		android:layout_height="match_parent"
 		android:columnCount ="2"
 		android:rowCount ="3"
+		android:layout_marginHorizontal="20dp"
 		>
 		<TextView
-			android:layout_columnWeight="1"
+			android:layout_columnWeight="2"
 			android:layout_rowWeight="0"
 			android:layout_columnSpan="2"
-			android:text="25C"
+			android:hint="Weather"
 			android:gravity="center"
-			android:textSize="100dp"
+			android:textSize="80dp"
 			android:id="@+id/temperature"/>
 		<TextView
 			android:layout_columnWeight="1"
 			android:layout_rowWeight="1"
-			android:text="40%"
+			android:text=""
 			android:gravity="left"
 			android:textSize="40dp"
 			android:layout_width="wrap_content"
@@ -50,14 +52,11 @@
 		<TextView
 			android:layout_columnWeight="1"
 			android:layout_rowWeight="1"
-			android:text="10 m/s"
+			android:text=""
 			android:gravity="right"
 			android:textSize="40dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/wind"/>
-		<Button
-			android:text="5 day forecast"
-			android:id="@+id/forecastBtn" />
 	</GridLayout>
 </LinearLayout>

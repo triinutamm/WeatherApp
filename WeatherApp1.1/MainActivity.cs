@@ -11,11 +11,11 @@ using System.Linq;
 using Android.Graphics;
 using System.Net;
 using Android.Content;
+using Android.Views;
 
 namespace WeatherApp1._1
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-
 
     public class MainActivity : AppCompatActivity
     {   
@@ -29,16 +29,7 @@ namespace WeatherApp1._1
            
             // Get forecast button
             var Button = FindViewById<Button>(Resource.Id.button1);
-            //5 day forecast
-            var forecastButton = FindViewById<Button>(Resource.Id.forecastBtn);
             Button.Click += Button_Click;
-            forecastButton.Click += ForecastButton_Click;
-        }
-        //Kui klikin 5 day forecast, siis läheb teise vaatesse 
-        private void ForecastButton_Click(object sender, EventArgs e)
-        {
-            var secondActivity = new Intent(this, typeof(ForecastActivity));
-            StartActivity(secondActivity);
         }
 
         private async void Button_Click(object sender, System.EventArgs e)
@@ -52,33 +43,24 @@ namespace WeatherApp1._1
             HttpContent content = response.Content;
             dynamic result = await content.ReadAsStringAsync();
 
-
-
             WeatherData data = JsonConvert.DeserializeObject<WeatherData>(result);
-            // Tee TextViewe juurde ja muuda mu tehtud variabled nendeks textviewideks
+            // Tee TextViewe juurde ja muuda tehtud variabled nendeks textviewideks
             var currentTemp = data.main.temp;
             var weatherTemperatureMin = data.main.temp_min;
             var weatherTemperatureMax = data.main.temp_max;
             var weatherWind = data.wind.speed;
             var weatherHumidity = data.main.humidity;
-            var weatherVisibility = data.weather.FirstOrDefault().main;
 
-
-            DateTime time = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            var weatherSunrise = time.AddSeconds(data.sys.sunrise);
-            var weatherSunset = time.AddSeconds(data.sys.sunset);
             var icon = data.weather.FirstOrDefault().icon;
 
             TextView Wind = FindViewById<TextView>(Resource.Id.wind);
-            TextView MaxMin = FindViewById<TextView>(Resource.Id.temperature);
+            TextView Temp = FindViewById<TextView>(Resource.Id.temperature);
             TextView Humidity = FindViewById<TextView>(Resource.Id.humidity);
-            //TextView Wind = FindViewById<TextView>(Resource.Id.wind);
             ImageView Weatherimage = FindViewById<ImageView>(Resource.Id.weatherimage);
 
             Wind.Text = weatherWind.ToString() + " m/s";
-            MaxMin.Text = weatherTemperatureMin.ToString() + "/" + weatherTemperatureMax;
+            Temp.Text = Math.Round(currentTemp).ToString() + "°C";
             Humidity.Text = weatherHumidity.ToString() + "%";
-
 
             Bitmap imageBitmap = null;
             using (var webClient = new WebClient())
@@ -88,7 +70,7 @@ namespace WeatherApp1._1
                 imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
             }
             Weatherimage.SetImageBitmap(imageBitmap);
-
+            Weatherimage.Visibility = ViewStates.Visible;
         }
     }
 }
